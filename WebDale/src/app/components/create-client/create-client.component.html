@@ -1,0 +1,52 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="titulo mb-3">{{ titulo | uppercase }}
+            <div *ngIf="loading" class="spinner-border text-info float-end" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </h5>
+        <form action="" [formGroup]="form" (ngSubmit)="guardarClient()">
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"
+                        [class.green-icon]="this.form.get('nombres')?.valid"
+                        [class.red-icon]="this.form.get('nombres')?.invalid && this.form.get('nombres')?.touched"></i></span>
+                <input type="text" formControlName='nombres' class="form-control" placeholder="Nombres del cliente">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"
+                        [class.green-icon]="this.form.get('apellidos')?.valid"
+                        [class.red-icon]="this.form.get('apellidos')?.invalid && this.form.get('apellidos')?.touched"></i></span>
+                <input type="text" formControlName='apellidos' class="form-control"
+                    placeholder="Apellidos del cliente">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-id-card"
+                        [class.green-icon]="this.form.get('numeroIdentificacion')?.valid"
+                        [class.red-icon]="this.form.get('numeroIdentificacion')?.invalid && this.form.get('numeroIdentificacion')?.touched"></i></span>
+                <input type="text" formControlName='numeroIdentificacion' class="form-control" placeholder="Número de Identificación">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"
+                        [class.green-icon]="this.form.get('direccion')?.valid"
+                        [class.red-icon]="this.form.get('direccion')?.invalid && this.form.get('direccion')?.touched"></i></span>
+                <input type="text" formControlName='direccion' class="form-control" placeholder="Dirección">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile"
+                        [class.green-icon]="this.form.get('celular')?.valid"
+                        [class.red-icon]="this.form.get('celular')?.invalid && this.form.get('celular')?.touched"></i></span>
+                <input type="text" formControlName='celular' class="form-control" placeholder="Celular">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"
+                        [class.green-icon]="this.form.get('email')?.valid"
+                        [class.red-icon]="this.form.get('email')?.invalid && this.form.get('email')?.touched"></i></span>
+                <input type="email" formControlName='email' class="form-control" placeholder="Correo">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-database"></i> &nbsp;Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>

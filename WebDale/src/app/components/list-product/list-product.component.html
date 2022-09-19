@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="titulo">Listar Producto</h5>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Referencia</th>
+                    <th>Descripción</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of listProduct">
+                    <td>{{ producto.name }}</td>
+                    <td>{{ producto.referenceCode }}</td>
+                    <td>{{ producto.description }}</td>
+                    <td>{{ producto.value }}</td>
+                    <td>
+                        <i (click)="editarProducto(producto)" class="far fa-edit text-info"></i>
+                        <i (click)="deleteProduct(producto.id)" class="far fa-trash-alt text-danger"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <app-paginator-app [paginate]="paginate" (goToPage)="goToPage($event)"></app-paginator-app>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Dale.Domain\Dale.Domain.csproj" />
+    <ProjectReference Include="..\Dale.Orders.DTO\Dale.Orders.DTO.csproj" />
+    <ProjectReference Include="..\Dale.Repository\Dale.Repository.csproj" />
+    <ProjectReference Include="..\Dale.Utils\Dale.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="titulo mb-3">Crear Orden {{ titulo | uppercase }}
+            <div *ngIf="loading" class="spinner-border text-info float-end" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </h5>
+        <form action="" [formGroup]="form" (ngSubmit)="createOrder()">
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-spell-check"
+                        [class.green-icon]="this.form.get('clientId')?.valid"
+                        [class.red-icon]="this.form.get('clientId')?.invalid && this.form.get('clientId')?.touched"></i></span>
+                <select class="form-select" formControlName="clientId" *ngFor="let client of listClient">
+                    <option value="{{client.id}}">{{client.nombreCompleto}}</option>
+                </select>
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-barcode"
+                        [class.green-icon]="this.form.get('factura')?.valid"
+                        [class.red-icon]="this.form.get('factura')?.invalid && this.form.get('factura')?.touched"></i></span>
+                <input type="text" formControlName='factura' class="form-control" placeholder="Número de factura">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-database"></i> &nbsp;Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>

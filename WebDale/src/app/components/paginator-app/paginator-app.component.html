@@ -1,0 +1,26 @@
+<ngb-pagination
+  class="d-flex justify-content-center"
+  *ngIf="paginate != null"
+  [collectionSize]="paginate.totalItems"
+  [pageSize]="paginate.pageSize"
+  [(page)]="filter.page"
+  (pageChange)="onPageChange()"
+  [maxSize]="15"
+  [rotate]="true"
+  [boundaryLinks]="true"
+>
+  <ng-template ngbPaginationFirst>
+    <i class="fa-solid fa-angles-left"></i>
+  </ng-template>
+  <ng-template ngbPaginationLast>
+    <i class="fa-solid fa-angles-right"></i>
+  </ng-template>
+  <ng-template ngbPaginationPrevious>
+    <i class="fa-solid fa-chevron-left"></i>
+  </ng-template>
+  <ng-template ngbPaginationNext>
+    <i class="fa-solid fa-chevron-right"></i>
+  </ng-template>
+  <ng-template ngbPaginationEllipsis>...</ng-template>
+  <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+</ngb-pagination>

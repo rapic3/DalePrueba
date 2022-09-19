@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="titulo mb-3">{{ titulo | uppercase }}
+            <div *ngIf="loading" class="spinner-border text-info float-end" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </h5>
+        <form action="" [formGroup]="form" (ngSubmit)="guardarProduct()">
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-spell-check"
+                        [class.green-icon]="this.form.get('name')?.valid"
+                        [class.red-icon]="this.form.get('name')?.invalid && this.form.get('name')?.touched"></i></span>
+                <input type="text" formControlName='name' class="form-control" placeholder="Nombre del producto">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-barcode"
+                        [class.green-icon]="this.form.get('referenceCode')?.valid"
+                        [class.red-icon]="this.form.get('referenceCode')?.invalid && this.form.get('referenceCode')?.touched"></i></span>
+                <input type="text" formControlName='referenceCode' class="form-control"
+                    placeholder="Código de referencia">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-regular fa-comment"
+                        [class.green-icon]="this.form.get('description')?.valid"
+                        [class.red-icon]="this.form.get('description')?.invalid && this.form.get('description')?.touched"></i></span>
+                <input type="text" formControlName='description' class="form-control" placeholder="Descripción">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-dollar-sign"
+                        [class.green-icon]="this.form.get('value')?.valid"
+                        [class.red-icon]="this.form.get('value')?.invalid && this.form.get('value')?.touched"></i></span>
+                <input type="number" formControlName='value' class="form-control" placeholder="Valor">
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-database"></i> &nbsp;Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="titulo">Listar Cliente</h5>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Identificación</th>
+                    <th>Dirección</th>
+                    <th>Celular</th>
+                    <th>Correo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let client of listClient">
+                    <td>{{ client.nombres }}</td>
+                    <td>{{ client.apellidos }}</td>
+                    <td>{{ client.numeroIdentificacion }}</td>
+                    <td>{{ client.direccion }}</td>
+                    <td>{{ client.celular }}</td>
+                    <td>{{ client.email }}</td>
+                    <td>
+                        <i (click)="editarClient(client)" class="far fa-edit text-info"></i>
+                        <i (click)="deleteClient(client.id)" class="far fa-trash-alt text-danger"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
